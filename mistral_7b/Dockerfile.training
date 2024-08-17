@@ -1,0 +1,16 @@
+# Utilisation de l'image de base PyTorch avec support CUDA
+FROM pytorch/pytorch:2.2.2-cuda12.1-cudnn8-runtime
+
+# Définit le répertoire de travail dans le conteneur
+WORKDIR /app
+
+# Copie le script Python dans le conteneur
+COPY training.py /app
+
+# Installe les dépendances nécessaires
+RUN pip install --upgrade pip && \
+    pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git" && \
+    pip install --no-deps "xformers<0.0.26" "trl<0.9.0" peft accelerate bitsandbytes scikit-learn scipy joblib threadpoolctl
+
+# Exécuter le script Python avec prise en charge du GPU
+CMD ["python", "training.py"]
