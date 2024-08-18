@@ -1,4 +1,4 @@
-<h1>GPU Testing on PrimeIntellect</h1>
+<h1>GPU Testing on <a href="https://app.primeintellect.ai/dashboard/create-cluster">PrimeIntellect</a></h1>
 <img src="/images/prime-intellect.png" alt="PrimeIntellect interface">
 
 <p>Welcome to the PrimeIntellect GPU testing documentation! PrimeIntellect is an innovative aggregator platform that simplifies the use of virtual machines (VMs) equipped with PyTorch images, enabling users to efficiently set up and execute deep learning models across various GPU configurations.</p>
@@ -28,7 +28,12 @@
   </li>
 </ol>
 
-<h2>Conclusion</h2>
-<p>By following this guide, you can leverage PrimeIntellect's VMs to perform comprehensive benchmarks on different GPUs using our pre-configured PyTorch images. This will aid in making informed decisions about which GPU configuration best suits your deep learning tasks in terms of performance and cost efficiency.</p>
+<p>Now all you have to do is navigate the project and run the training script.</p>
+<pre>cd prime-intellect-test
+cd llama_8b
+./training.sh
+</pre>
 
-<p>Explore different models and configurations to optimize your workflows on the PrimeIntellect platform. Happy testing!</p>
+<h2>Conclusion</h2>
+<p>By following this guide, you can leverage PrimeIntellect's VMs to perform comprehensive benchmarks on different GPUs using the pre-configured PyTorch images. This will aid in making informed decisions about which GPU configuration best suits your deep learning tasks in terms of performance and cost efficiency.</p>
+
