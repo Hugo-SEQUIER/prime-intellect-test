@@ -2,6 +2,8 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, TrainingArguments
 from trl import SFTTrainer
 from datasets import load_dataset, load_metric
 import torch
+import nltk
+nltk.download('wordnet')
 torch.cuda.empty_cache()
 
 def initialize(dataset_path, model_name):
