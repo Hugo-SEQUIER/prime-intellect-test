@@ -1,88 +1,66 @@
-from transformers import AutoTokenizer, AutoModelForCausalLM, TrainingArguments
-from trl import SFTTrainer
-from datasets import load_dataset, load_metric
+## Imports
+from datasets import load_dataset
 import torch
-import nltk
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
-def initialize(dataset_path, model_name):
+torch.cuda.empty_cache()
 
-    # Load the Alpaca dataset
-    dataset = load_dataset(dataset_path, "all")
-
-    # Load the tokenizer
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-
-    return tokenizer, dataset
-
-def initialize_metrics():
-
-    # Load the evaluation metric (e.g., perplexity, BLEU)
-    bleu_metric = load_metric("bleu")
-    rouge_metric = load_metric("rouge")
-
-    return bleu_metric, rouge_metric
-
-def test(model_name, tokenizer, tokenized_datasets, bleu, rouge):
-    # Load the fine-tuned model
+def initialize_model():
+    model_path = "mistral_model" # Depends of the directory storage
     device='cuda'
     dtype=torch.bfloat16
-    model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=dtype, device_map=device)
-    
-    # Define the training arguments (if needed)
-    training_args = TrainingArguments(
-        output_dir="./results",
-        evaluation_strategy="epoch",
-        per_device_eval_batch_size=8,
-        predict_with_generate=True,
-        no_cuda=False,
-    )
+    model = AutoModelForCausalLM.from_pretrained(model_path, torch_dtype=dtype, device_map=device)
+    tokenizer = AutoTokenizer.from_pretrained(model_path)
 
-    # Initialize the SFTTrainer
-    trainer = SFTTrainer(
-        model=model,
-        args=training_args,
-        eval_dataset=tokenized_datasets["validation"],
-        tokenizer=tokenizer,
-        compute_metrics=None,  # We'll compute metrics manually below
-    )
-    
-    # Perform evaluation
-    eval_results = trainer.evaluate()
-    
-    # Calculate additional metrics
-    predictions = trainer.predict(tokenized_datasets["validation"]).predictions
-    decoded_preds = tokenizer.batch_decode(predictions, skip_special_tokens=True)
-    
-    # Assuming the reference text is in the 'text' column of the validation set
-    references = [example['text'] for example in tokenized_datasets["validation"]]
-    
-    # Calculate BLEU and ROUGE scores
-    bleu_score = bleu.compute(predictions=decoded_preds, references=references)
-    rouge_score = rouge.compute(predictions=decoded_preds, references=references)
-    
-    # Store the results
-    evaluation_results = {
-        "eval_loss": eval_results["eval_loss"],
-        "bleu_score": bleu_score,
-        "rouge_score": rouge_score
-    }
+    return model, tokenizer
 
-    return evaluation_results,
+def initialize_dataset():
+    ds = load_dataset("cais/mmlu", "all")
+
+    alpaca_prompt = """Below is an instruction that describes a task, paired with an input that provides further context. Select the choice from the given 'Choices'.
+    It's Very Important to have an output containing THE CHOICE !!!!
+    ### Instruction:
+    {}
+
+    ### Choices:
+    {}
+
+    ### Response:
+    {}"""
+
+    return ds, alpaca_prompt
+
+def evaluate_model(model, tokenizer, dataset, alpaca_prompt):
+    correct = 0
+    total = len(dataset)
+    for i in range(total):
+        question = dataset[i]["question"]
+        choices = dataset[i]["choices"]
+        input_ids = tokenizer([
+                alpaca_prompt.format(
+                    question, # instruction
+                    choices,
+                    "", # output - leave this blank for generation!
+                )
+            ], return_tensors="pt").to(model.device)
+        output_ids = model.generate(**input_ids, max_length=2048, num_return_sequences=1)
+        # Decode and print the output
+        output_text = tokenizer.batch_decode(output_ids)[0].strip()
+        output_text = output_text.split("Response:\n")[1].split("<|")[0].replace("'","").replace('.','').split(' ')[-1] # Ensure output is cleaned up of any extra whitespace
+        if output_text == int(dataset[i]["answer"]) or output_text == dataset[i]['choices'][int(dataset[i]['answer'])]:
+          correct += 1 
+                
+    accuracy = correct / total
+    
+    return accuracy
 
 if __name__ == "__main__":
-    nltk.download('wordnet')
-    torch.cuda.empty_cache()
-    model_name = "mistral_model"
+    model, tokenizer = initialize_model()
+    dataset, alcapa_prt = initialize_dataset()
 
-    tokenizer, tokenized_dataset = initialize("cais/mmlu", model_name)
-    bleu, rouge = initialize_metrics()
-    evaluation_results = test(model_name, tokenizer, tokenized_dataset, bleu, rouge)
-    # Print the summary of all models
-    print('-'*10)
-    print("\nSummary :")
-    print('-'*10)
-    for model_name, metrics in evaluation_results.items():
-        print(f"\nModel: {model_name}")
-        for metric, value in metrics.items():
-            print(f"{metric}: {value}")
-    print('-'*10)
+    accuracy_list = []
+    for i in range(5):
+        accuracy = evaluate_model(model, tokenizer, dataset['test'], alcapa_prt)
+        accuracy_list.append(accuracy)
+        print('Round : ', i, ' - Accuracy : ', accuracy)
+    print(sum(accuracy_list) / len(accuracy_list))
