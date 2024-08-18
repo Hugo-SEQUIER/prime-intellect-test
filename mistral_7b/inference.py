@@ -1,4 +1,5 @@
-from transformers import AutoTokenizer, AutoModelForCausalLM, TrainingArguments, SFTTrainer
+from transformers import AutoTokenizer, AutoModelForCausalLM, TrainingArguments
+from trl import SFTTrainer
 from datasets import load_dataset, load_metric
 import torch
 torch.cuda.empty_cache()
