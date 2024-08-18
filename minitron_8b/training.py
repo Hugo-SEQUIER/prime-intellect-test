@@ -94,7 +94,7 @@ def initialize_trainer(model, tokenizer, dataset, max_seq_length):
 if __name__ == "__main__":
     start_time = time.time()
     max_seq_length = 2048
-    model, tokenizer = initialize_model(max_seq_length)
+    model, tokenizer = initialize_model()
 
     dataset = initialize_dataset(tokenizer, "yahma/alpaca-cleaned")
 
