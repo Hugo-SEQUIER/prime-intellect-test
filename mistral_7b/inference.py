@@ -7,7 +7,7 @@ torch.cuda.empty_cache()
 def initialize(dataset_path, model_name):
 
     # Load the Alpaca dataset
-    dataset = load_dataset(dataset_path)
+    dataset = load_dataset(dataset_path, "all")
 
     # Load the tokenizer
     tokenizer = AutoTokenizer.from_pretrained(model_name)
