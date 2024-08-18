@@ -3,8 +3,6 @@ from trl import SFTTrainer
 from datasets import load_dataset, load_metric
 import torch
 import nltk
-nltk.download('wordnet')
-torch.cuda.empty_cache()
 
 def initialize(dataset_path, model_name):
 
@@ -72,7 +70,8 @@ def test(model_name, tokenizer, tokenized_datasets, bleu, rouge):
     return evaluation_results,
 
 if __name__ == "__main__":
-
+    nltk.download('wordnet')
+    torch.cuda.empty_cache()
     model_name = "mistral_model"
 
     tokenizer, tokenized_dataset = initialize("cais/mmlu", model_name)
