@@ -1,11 +1,4 @@
 #!/bin/bash
-
-# Crée un environnement virtuel Python
-python -m venv venv
-
-# Active l'environnement virtuel
-source venv/bin/activate
-
 # Met à jour pip
 pip install --upgrade pip
 
@@ -16,6 +9,3 @@ pip install --no-deps --upgrade "flash-attn>=2.6.3" einops
 
 # Exécute le script Python
 python inference.py
-
-# Désactive l'environnement virtuel
-deactivate
