@@ -12,14 +12,7 @@ def initialize(dataset_path, model_name):
     # Load the tokenizer
     tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-    # Define a function to tokenize the dataset
-    def tokenize_function(examples):
-        return tokenizer([examples['question']], padding="max_length", truncation=True)
-
-    # Tokenize the dataset
-    tokenized_datasets = dataset.map(tokenize_function, batched=True)
-
-    return tokenizer, tokenized_datasets
+    return tokenizer, dataset
 
 def initialize_metrics():
 
