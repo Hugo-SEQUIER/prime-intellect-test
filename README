@@ -1,1 +1,2 @@
 git clone https://github.com/Hugo-SEQUIER/prime-intellect-test.git
+find prime-intellect-test -type f -name "*.sh" -exec chmod +x {} \;

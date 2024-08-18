@@ -54,7 +54,7 @@ def evaluate_model(model, tokenizer, dataset, alpaca_prompt):
     
     return accuracy
 
-def __main__():
+if __name__ == "__main__":
     model, tokenizer = initialize_model()
     dataset, alcapa_prt = initialize_dataset()
 
