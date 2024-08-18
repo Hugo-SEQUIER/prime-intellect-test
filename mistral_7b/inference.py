@@ -14,7 +14,7 @@ def initialize(dataset_path, model_name):
 
     # Define a function to tokenize the dataset
     def tokenize_function(examples):
-        return tokenizer(examples, padding="max_length", truncation=True)
+        return tokenizer([examples['instruction'], examples['output']], padding="max_length", truncation=True)
 
     # Tokenize the dataset
     tokenized_datasets = dataset.map(tokenize_function, batched=True)
