@@ -1,2 +1,1 @@
-docker run --gpus all mon-script-python
 git clone https://github.com/Hugo-SEQUIER/prime-intellect-test.git
