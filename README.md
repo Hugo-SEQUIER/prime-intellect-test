@@ -22,6 +22,17 @@
 <h3>Disclaimer on Accuracy Metrics</h3>
 <p>Please note that the accuracy results mentioned here are based on a MMLU test conducted by NVIDIA, as documented in their study <a href="https://arxiv.org/abs/2407.14679">available here</a>. These results are used for reference; I am currently exploring methods to conduct my own effective testing to directly assess the training outcomes.</p>
 
+<h2>Connecting to the VM</h2>
+<img src="/images/connect_vm.png" alt="How to Connect to the VM">
+<p>After launching an instance on PrimeIntellect, follow these steps to connect to your VM:</p>
+<ol>
+  <li><strong>Download the Private Key:</strong> Once your VM is ready, download the private key provided by PrimeIntellect. This key is necessary to securely connect to your VM.</li>
+  <li><strong>Change Permissions on the Private Key:</strong> Before using the key, you must change its permissions to ensure that it is secure. Open a terminal on your computer and navigate to the directory where you downloaded the key. Then, execute the following command:
+  <pre>chmod 400 [your-key-name].pem</pre></li>
+  <li><strong>Connect to the VM:</strong> With the key's permissions set, you're ready to connect to the VM. In the same terminal window, use the connection command provided by PrimeIntellect. It will look something like this:
+  <pre>ssh -i [your-key-name].pem ubuntu@[vm-ip-address]</pre></li>
+</ol>
+<p>Replace [your-key-name] with the name of your key file and [vm-ip-address] with the IP address provided for your VM.</p>
 <h2>Setting Up Your Test Environment</h2>
 <p>Once you've connected to a VM, setting up and running the test scripts is straightforward. Follow these steps:</p>
 
