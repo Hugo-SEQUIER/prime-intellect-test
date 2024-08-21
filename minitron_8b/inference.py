@@ -1,21 +1,36 @@
 ## Imports
 from datasets import load_dataset
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+import json
+from peft import LoraConfig
 
 torch.cuda.empty_cache()
 
 def initialize_model():
-    model_path = "minitron_model" # Depends of the directory storage
-    device='cuda'
+    model_path = "nvidia/Minitron-8B-Base"
     dtype=torch.bfloat16
-    model = AutoModelForCausalLM.from_pretrained(model_path, torch_dtype=dtype, device_map=device)
+    load_in_4bit = True # Use 4bit quantization to reduce memory usage. Can be False.
     tokenizer = AutoTokenizer.from_pretrained(model_path)
+    model = AutoModelForCausalLM.from_pretrained(model_path, torch_dtype=dtype, device_map="auto", quantization_config=BitsAndBytesConfig(load_in_4bit=load_in_4bit))
+    
+    peft_config = LoraConfig(
+        target_modules=["q_proj", "k_proj", "v_proj", "o_proj",
+                        "gate_proj", "up_proj", "down_proj",],
+        init_lora_weights=False,
+        lora_alpha=16,
+        lora_dropout=0.1,
+        r=64,
+        bias="none",
+        task_type="CAUSAL_LM",
+    )
 
+    model.add_adapter(peft_config, adapter_name="adapter_1")
+    tokenizer.pad_token = tokenizer.eos_token
     return model, tokenizer
 
-def initialize_dataset():
-    ds = load_dataset("cais/mmlu", "all")
+def initialize_dataset(subject):
+    ds = load_dataset("cais/mmlu", subject)
 
     alpaca_prompt = """Below is an instruction that describes a task, paired with an input that provides further context. Select the choice from the given 'Choices'.
     It's Very Important to have an output containing THE CHOICE !!!!
@@ -31,9 +46,8 @@ def initialize_dataset():
     return ds, alpaca_prompt
 
 def evaluate_model(model, tokenizer, dataset, alpaca_prompt):
-    correct = 0
-    total = len(dataset)
-    for i in range(total):
+    list_response = []
+    for i in range(len(dataset)):
         question = dataset[i]["question"]
         choices = dataset[i]["choices"]
         input_ids = tokenizer([
@@ -46,21 +60,44 @@ def evaluate_model(model, tokenizer, dataset, alpaca_prompt):
         output_ids = model.generate(**input_ids, max_length=2048, num_return_sequences=1)
         # Decode and print the output
         output_text = tokenizer.batch_decode(output_ids)[0].strip()
-        output_text = output_text.split("Response:\n")[1].split("<|")[0].replace("'","").replace('.','').split(' ')[-1] # Ensure output is cleaned up of any extra whitespace
-        if output_text == int(dataset[i]["answer"]) or output_text == dataset[i]['choices'][int(dataset[i]['answer'])]:
-          correct += 1 
-                
-    accuracy = correct / total
-    
-    return accuracy
+        list_response.append(output_text)
+    return list_response
+
+def create_json(list_response):
+    fichier_json = './response_dict.json'
+    with open(fichier_json, 'w', encoding='utf-8') as f:
+        json.dump(list_response, f, ensure_ascii=False, indent=4)
 
 if __name__ == "__main__":
     model, tokenizer = initialize_model()
-    dataset, alcapa_prt = initialize_dataset()
 
-    accuracy_list = []
-    for i in range(5):
-        accuracy = evaluate_model(model, tokenizer, dataset['test'], alcapa_prt)
-        accuracy_list.append(accuracy)
-        print('Round : ', i, ' - Accuracy : ', accuracy)
-    print(sum(accuracy_list) / len(accuracy_list))
+    list_subject = ['abstract_algebra', 'anatomy', 'astronomy', 'business_ethics',
+       'clinical_knowledge', 'college_biology', 'college_chemistry',
+       'college_computer_science', 'college_mathematics',
+       'college_medicine', 'college_physics', 'computer_security',
+       'conceptual_physics', 'econometrics', 'electrical_engineering',
+       'elementary_mathematics', 'formal_logic', 'global_facts',
+       'high_school_biology', 'high_school_chemistry',
+       'high_school_computer_science', 'high_school_european_history',
+       'high_school_geography', 'high_school_government_and_politics',
+       'high_school_macroeconomics', 'high_school_mathematics',
+       'high_school_microeconomics', 'high_school_physics',
+       'high_school_psychology', 'high_school_statistics',
+       'high_school_us_history', 'high_school_world_history',
+       'human_aging', 'human_sexuality', 'international_law',
+       'jurisprudence', 'logical_fallacies', 'machine_learning',
+       'management', 'marketing', 'medical_genetics', 'miscellaneous',
+       'moral_disputes', 'moral_scenarios', 'nutrition', 'philosophy',
+       'prehistory', 'professional_accounting', 'professional_law',
+       'professional_medicine', 'professional_psychology',
+       'public_relations', 'security_studies', 'sociology',
+       'us_foreign_policy', 'virology', 'world_religions']
+
+    list_response = {}
+    for subject in list_subject:
+        dataset, alcapa_prt = initialize_dataset(subject)
+        print('Subject : ', subject, '-'*5)
+        response = evaluate_model(model, tokenizer, dataset['validation'], alcapa_prt, subject)
+        list_response[subject] = response
+    
+    create_json(list_response)
