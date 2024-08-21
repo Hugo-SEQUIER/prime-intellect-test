@@ -75,7 +75,8 @@ def create_json(list_response):
         json.dump(list_response, f, ensure_ascii=False, indent=4)
 
 if __name__ == "__main__":
-    model, tokenizer = initialize_model()
+    max_seq_length = 2048
+    model, tokenizer = initialize_model(max_seq_length)
 
     list_subject = ['abstract_algebra', 'anatomy', 'astronomy', 'business_ethics',
        'clinical_knowledge', 'college_biology', 'college_chemistry',
