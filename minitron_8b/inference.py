@@ -97,9 +97,9 @@ if __name__ == "__main__":
     list_response = {}
     dataset, alcapa_prt = initialize_dataset()
     for subject in list_subject:
-        dataset = dataset.filter(lambda x: x['subject'] == subject)
+        dataset_filtered = dataset.filter(lambda x: x['subject'] == subject)
         print('Subject : ', subject, '-'*5)
-        response = evaluate_model(model, tokenizer, dataset['validation'], alcapa_prt)
+        response = evaluate_model(model, tokenizer, dataset_filtered['validation'], alcapa_prt)
         list_response[subject] = response
     
     create_json(list_response)
