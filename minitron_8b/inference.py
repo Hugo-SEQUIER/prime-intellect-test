@@ -4,7 +4,8 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 import json
 from peft import LoraConfig
-
+import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 torch.cuda.empty_cache()
 
 def initialize_model():

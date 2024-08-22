@@ -3,7 +3,8 @@ from datasets import load_dataset
 import torch
 from unsloth import FastLanguageModel
 import json
-
+import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 torch.cuda.empty_cache()
 
 def initialize_model(max_seq_length):
