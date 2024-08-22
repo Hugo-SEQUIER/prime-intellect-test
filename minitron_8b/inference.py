@@ -97,7 +97,7 @@ if __name__ == "__main__":
     for subject in list_subject:
         dataset, alcapa_prt = initialize_dataset(subject)
         print('Subject : ', subject, '-'*5)
-        response = evaluate_model(model, tokenizer, dataset['validation'], alcapa_prt, subject)
+        response = evaluate_model(model, tokenizer, dataset['validation'], alcapa_prt)
         list_response[subject] = response
     
     create_json(list_response)
