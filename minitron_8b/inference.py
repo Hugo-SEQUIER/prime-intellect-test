@@ -58,7 +58,7 @@ def evaluate_model(model, tokenizer, dataset, alpaca_prompt):
                     "", # output - leave this blank for generation!
                 )
             ], return_tensors="pt").to(model.device)
-        output_ids = model.generate(**input_ids, max_length=64, num_return_sequences=1)
+        output_ids = model.generate(**input_ids, max_length=512, max_new_tokens=128, num_return_sequences=1)
         # Decode and print the output
         output_text = tokenizer.batch_decode(output_ids)[0].strip()
         list_response.append(output_text)
