@@ -36,8 +36,8 @@ def initialize_model(max_seq_length):
     
     return model, tokenizer
 
-def initialize_dataset(subject):
-    ds = load_dataset("cais/mmlu", subject)
+def initialize_dataset():
+    ds = load_dataset("cais/mmlu")
 
     alpaca_prompt = """Below is an instruction that describes a task, paired with an input that provides further context. Select the choice from the given 'Choices'.
     It's Very Important to have an output containing THE CHOICE !!!!
@@ -64,7 +64,7 @@ def evaluate_model(model, tokenizer, dataset, alpaca_prompt):
                     "", # output - leave this blank for generation!
                 )
             ], return_tensors="pt").to(model.device)
-        output_ids = model.generate(**input_ids, max_length=2048, num_return_sequences=1)
+        output_ids = model.generate(**input_ids, max_length=64, num_return_sequences=1)
         # Decode and print the output
         output_text = tokenizer.batch_decode(output_ids)[0].strip()
         list_response.append(output_text)
@@ -102,8 +102,9 @@ if __name__ == "__main__":
        'us_foreign_policy', 'virology', 'world_religions']
     FastLanguageModel.for_inference(model)
     list_response = {}
+    dataset, alcapa_prt = initialize_dataset()
     for subject in list_subject:
-        dataset, alcapa_prt = initialize_dataset(subject)
+        dataset = dataset.filter(lambda x: x['subject'] == subject)
         print('Subject : ', subject, '-'*5)
         response = evaluate_model(model, tokenizer, dataset['validation'], alcapa_prt)
         list_response[subject] = response
