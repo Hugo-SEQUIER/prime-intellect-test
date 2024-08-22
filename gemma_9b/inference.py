@@ -37,7 +37,7 @@ def initialize_model(max_seq_length):
     return model, tokenizer
 
 def initialize_dataset():
-    ds = load_dataset("cais/mmlu")
+    ds = load_dataset("cais/mmlu", "all")
 
     alpaca_prompt = """Below is an instruction that describes a task, paired with an input that provides further context. Select the choice from the given 'Choices'.
     It's Very Important to have an output containing THE CHOICE !!!!
