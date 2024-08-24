@@ -12,7 +12,7 @@ def initialize_model(max_seq_length):
     load_in_4bit = True # Use 4bit quantization to reduce memory usage. Can be False.
 
     model, tokenizer = FastLanguageModel.from_pretrained(
-        model_name = "unsloth/gemma-2-9b",
+        model_name = "unsloth/gemma-2-9b-it-bnb-4bit",
         max_seq_length = max_seq_length,
         dtype = dtype,
         load_in_4bit = load_in_4bit,
