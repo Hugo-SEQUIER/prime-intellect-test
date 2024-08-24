@@ -47,6 +47,7 @@ def initialize_dataset():
     return ds, alpaca_prompt
 
 def evaluate_model(model, tokenizer, dataset, alpaca_prompt):
+    model.generation_config.pad_token_id = tokenizer.pad_token_id
     list_response = []
     for i in range(len(dataset)):
         question = dataset[i]["question"]
@@ -65,8 +66,8 @@ def evaluate_model(model, tokenizer, dataset, alpaca_prompt):
             no_repeat_ngram_size=2,
             do_sample=False,
             num_beams=1,
-            early_stopping=True,
             use_cache=True,
+            pad_token_id=tokenizer.eos_token_id
         )
         # Decode and print the output
         output_text = tokenizer.batch_decode(output_ids)[0].strip()

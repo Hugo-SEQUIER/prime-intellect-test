@@ -71,7 +71,6 @@ def evaluate_model(model, tokenizer, dataset, alpaca_prompt):
             no_repeat_ngram_size=2,
             do_sample=False,
             num_beams=1,
-            early_stopping=True,
             use_cache=True,
         )
         # Decode and print the output
