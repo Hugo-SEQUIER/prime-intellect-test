@@ -1,9 +1,8 @@
 # Import libraries
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, TrainingArguments
 from datasets import load_dataset
 import torch
 from trl import SFTTrainer
-from transformers import TrainingArguments
 from peft import LoraConfig
 
 import time
