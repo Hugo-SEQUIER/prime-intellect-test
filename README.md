@@ -34,409 +34,409 @@
   <tbody>
     <tr>
       <td>abstract_algebra</td>
-      <td>0.363636364</td>
-      <td>0.545454545</td>
-      <td>0.454545455</td>
-      <td>0.272727273</td>
+      <td>0.364</td>
+      <td>0.545</td>
+      <td>0.455</td>
+      <td>0.273</td>
     </tr>
     <tr>
       <td>anatomy</td>
-      <td>0.071428571</td>
-      <td>0.357142857</td>
-      <td>0.142857143</td>
-      <td>0.571428571</td>
+      <td>0.071</td>
+      <td>0.357</td>
+      <td>0.143</td>
+      <td>0.571</td>
     </tr>
     <tr>
       <td>astronomy</td>
-      <td>0.0625</td>
-      <td>0.3125</td>
-      <td>0.0625</td>
+      <td>0.063</td>
+      <td>0.313</td>
+      <td>0.063</td>
       <td>0.375</td>
     </tr>
     <tr>
       <td>business_ethics</td>
-      <td>0.090909091</td>
-      <td>0.727272727</td>
-      <td>0.090909091</td>
-      <td>0.272727273</td>
+      <td>0.091</td>
+      <td>0.727</td>
+      <td>0.091</td>
+      <td>0.273</td>
     </tr>
     <tr>
       <td>clinical_knowledge</td>
-      <td>0.068965517</td>
-      <td>0.413793103</td>
-      <td>0.24137931</td>
-      <td>0.344827586</td>
+      <td>0.069</td>
+      <td>0.414</td>
+      <td>0.241</td>
+      <td>0.345</td>
     </tr>
     <tr>
       <td>college_biology</td>
-      <td>0.0625</td>
+      <td>0.063</td>
       <td>0.375</td>
-      <td>0.25</td>
-      <td>0.5</td>
+      <td>0.250</td>
+      <td>0.500</td>
     </tr>
     <tr>
       <td>college_chemistry</td>
-      <td>0.25</td>
-      <td>0.25</td>
-      <td>0.25</td>
+      <td>0.250</td>
+      <td>0.250</td>
+      <td>0.250</td>
       <td>0.625</td>
     </tr>
     <tr>
       <td>college_computer_science</td>
-      <td>0.090909091</td>
-      <td>0.272727273</td>
-      <td>0.181818182</td>
-      <td>0.272727273</td>
+      <td>0.091</td>
+      <td>0.273</td>
+      <td>0.182</td>
+      <td>0.273</td>
     </tr>
     <tr>
       <td>college_mathematics</td>
-      <td>0.090909091</td>
-      <td>0.272727273</td>
-      <td>0.272727273</td>
-      <td>0.181818182</td>
+      <td>0.091</td>
+      <td>0.273</td>
+      <td>0.273</td>
+      <td>0.182</td>
     </tr>
     <tr>
       <td>college_medicine</td>
-      <td>0.136363636</td>
-      <td>0.409090909</td>
-      <td>0.272727273</td>
-      <td>0.409090909</td>
+      <td>0.136</td>
+      <td>0.409</td>
+      <td>0.273</td>
+      <td>0.409</td>
     </tr>
     <tr>
       <td>college_physics</td>
-      <td>0.181818182</td>
-      <td>0.272727273</td>
-      <td>0.363636364</td>
-      <td>0.272727273</td>
+      <td>0.182</td>
+      <td>0.273</td>
+      <td>0.364</td>
+      <td>0.273</td>
     </tr>
     <tr>
       <td>computer_security</td>
-      <td>0.090909091</td>
-      <td>0.454545455</td>
-      <td>0.272727273</td>
-      <td>0.363636364</td>
+      <td>0.091</td>
+      <td>0.455</td>
+      <td>0.273</td>
+      <td>0.364</td>
     </tr>
     <tr>
       <td>conceptual_physics</td>
-      <td>0.230769231</td>
-      <td>0.346153846</td>
-      <td>0.384615385</td>
-      <td>0.423076923</td>
+      <td>0.231</td>
+      <td>0.346</td>
+      <td>0.385</td>
+      <td>0.423</td>
     </tr>
     <tr>
       <td>econometrics</td>
-      <td>0.083333333</td>
-      <td>0.666666667</td>
-      <td>0.333333333</td>
-      <td>0.333333333</td>
+      <td>0.083</td>
+      <td>0.667</td>
+      <td>0.333</td>
+      <td>0.333</td>
     </tr>
     <tr>
       <td>electrical_engineering</td>
-      <td>0.1875</td>
+      <td>0.188</td>
       <td>0.375</td>
-      <td>0.3125</td>
+      <td>0.313</td>
       <td>0.375</td>
     </tr>
     <tr>
       <td>elementary_mathematics</td>
-      <td>0.195121951</td>
-      <td>0.292682927</td>
-      <td>0.317073171</td>
-      <td>0.341463415</td>
+      <td>0.195</td>
+      <td>0.293</td>
+      <td>0.317</td>
+      <td>0.341</td>
     </tr>
     <tr>
       <td>formal_logic</td>
-      <td>0.142857143</td>
-      <td>0.214285714</td>
-      <td>0.285714286</td>
-      <td>0.214285714</td>
+      <td>0.143</td>
+      <td>0.214</td>
+      <td>0.286</td>
+      <td>0.214</td>
     </tr>
     <tr>
       <td>global_facts</td>
-      <td>0.1</td>
-      <td>0.2</td>
-      <td>0.5</td>
-      <td>0.2</td>
+      <td>0.100</td>
+      <td>0.200</td>
+      <td>0.500</td>
+      <td>0.200</td>
     </tr>
     <tr>
       <td>high_school_biology</td>
       <td>0.125</td>
-      <td>0.4375</td>
-      <td>0.15625</td>
-      <td>0.3125</td>
+      <td>0.438</td>
+      <td>0.156</td>
+      <td>0.313</td>
     </tr>
     <tr>
       <td>high_school_chemistry</td>
-      <td>0.090909091</td>
-      <td>0.181818182</td>
-      <td>0.090909091</td>
-      <td>0.181818182</td>
+      <td>0.091</td>
+      <td>0.182</td>
+      <td>0.091</td>
+      <td>0.182</td>
     </tr>
     <tr>
       <td>high_school_computer_science</td>
-      <td>0.111111111</td>
-      <td>0.777777778</td>
-      <td>0.111111111</td>
-      <td>0.111111111</td>
+      <td>0.111</td>
+      <td>0.778</td>
+      <td>0.111</td>
+      <td>0.111</td>
     </tr>
     <tr>
       <td>high_school_european_history</td>
-      <td>0.055555556</td>
-      <td>0.555555556</td>
-      <td>0.111111111</td>
-      <td>0.555555556</td>
+      <td>0.056</td>
+      <td>0.556</td>
+      <td>0.111</td>
+      <td>0.556</td>
     </tr>
     <tr>
       <td>high_school_geography</td>
-      <td>0.136363636</td>
-      <td>0.454545455</td>
-      <td>0.409090909</td>
-      <td>0.545454545</td>
+      <td>0.136</td>
+      <td>0.455</td>
+      <td>0.409</td>
+      <td>0.545</td>
     </tr>
     <tr>
       <td>high_school_government_and_politics</td>
-      <td>0.238095238</td>
-      <td>0.476190476</td>
-      <td>0.380952381</td>
-      <td>0.476190476</td>
+      <td>0.238</td>
+      <td>0.476</td>
+      <td>0.381</td>
+      <td>0.476</td>
     </tr>
     <tr>
       <td>high_school_macroeconomics</td>
-      <td>0.069767442</td>
-      <td>0.511627907</td>
-      <td>0.186046512</td>
-      <td>0.348837209</td>
+      <td>0.070</td>
+      <td>0.512</td>
+      <td>0.186</td>
+      <td>0.349</td>
     </tr>
     <tr>
       <td>high_school_mathematics</td>
-      <td>0.068965517</td>
-      <td>0.448275862</td>
-      <td>0.413793103</td>
-      <td>0.24137931</td>
+      <td>0.069</td>
+      <td>0.448</td>
+      <td>0.414</td>
+      <td>0.241</td>
     </tr>
     <tr>
       <td>high_school_microeconomics</td>
-      <td>0.115384615</td>
-      <td>0.384615385</td>
-      <td>0.115384615</td>
-      <td>0.269230769</td>
+      <td>0.115</td>
+      <td>0.385</td>
+      <td>0.115</td>
+      <td>0.269</td>
     </tr>
     <tr>
       <td>high_school_physics</td>
-      <td>0</td>
-      <td>0.235294118</td>
-      <td>0</td>
-      <td>0.117647059</td>
+      <td>0.000</td>
+      <td>0.235</td>
+      <td>0.000</td>
+      <td>0.118</td>
     </tr>
     <tr>
       <td>high_school_psychology</td>
-      <td>0.2</td>
-      <td>0.616666667</td>
-      <td>0.366666667</td>
-      <td>0.483333333</td>
+      <td>0.200</td>
+      <td>0.617</td>
+      <td>0.367</td>
+      <td>0.483</td>
     </tr>
     <tr>
       <td>high_school_statistics</td>
-      <td>0.043478261</td>
-      <td>0.434782609</td>
-      <td>0.260869565</td>
-      <td>0.391304348</td>
+      <td>0.043</td>
+      <td>0.435</td>
+      <td>0.261</td>
+      <td>0.391</td>
     </tr>
     <tr>
       <td>high_school_us_history</td>
-      <td>0.045454545</td>
-      <td>0.545454545</td>
-      <td>0.136363636</td>
-      <td>0.409090909</td>
+      <td>0.045</td>
+      <td>0.545</td>
+      <td>0.136</td>
+      <td>0.409</td>
     </tr>
     <tr>
       <td>high_school_world_history</td>
-      <td>0.038461538</td>
-      <td>0.461538462</td>
-      <td>0.192307692</td>
-      <td>0.230769231</td>
+      <td>0.038</td>
+      <td>0.462</td>
+      <td>0.192</td>
+      <td>0.231</td>
     </tr>
     <tr>
       <td>human_aging</td>
-      <td>0.086956522</td>
-      <td>0.347826087</td>
-      <td>0.391304348</td>
-      <td>0.347826087</td>
+      <td>0.087</td>
+      <td>0.348</td>
+      <td>0.391</td>
+      <td>0.348</td>
     </tr>
     <tr>
       <td>human_sexuality</td>
-      <td>0.083333333</td>
-      <td>0.25</td>
-      <td>0.25</td>
-      <td>0.25</td>
+      <td>0.083</td>
+      <td>0.250</td>
+      <td>0.250</td>
+      <td>0.250</td>
     </tr>
     <tr>
       <td>international_law</td>
-      <td>0.076923077</td>
-      <td>0.461538462</td>
-      <td>0.076923077</td>
-      <td>0.230769231</td>
+      <td>0.077</td>
+      <td>0.462</td>
+      <td>0.077</td>
+      <td>0.231</td>
     </tr>
     <tr>
       <td>jurisprudence</td>
-      <td>0.090909091</td>
-      <td>0.363636364</td>
-      <td>0.090909091</td>
-      <td>0.181818182</td>
+      <td>0.091</td>
+      <td>0.364</td>
+      <td>0.091</td>
+      <td>0.182</td>
     </tr>
     <tr>
       <td>logical_fallacies</td>
-      <td>0.055555556</td>
-      <td>0.5</td>
-      <td>0.277777778</td>
-      <td>0.277777778</td>
+      <td>0.056</td>
+      <td>0.500</td>
+      <td>0.278</td>
+      <td>0.278</td>
     </tr>
     <tr>
       <td>machine_learning</td>
-      <td>0.363636364</td>
-      <td>0.545454545</td>
-      <td>0.272727273</td>
-      <td>0.454545455</td>
+      <td>0.364</td>
+      <td>0.545</td>
+      <td>0.273</td>
+      <td>0.455</td>
     </tr>
     <tr>
       <td>management</td>
-      <td>0.181818182</td>
-      <td>0.454545455</td>
-      <td>0.454545455</td>
-      <td>0.636363636</td>
+      <td>0.182</td>
+      <td>0.455</td>
+      <td>0.455</td>
+      <td>0.636</td>
     </tr>
     <tr>
       <td>marketing</td>
-      <td>0.28</td>
-      <td>0.56</td>
-      <td>0.44</td>
-      <td>0.64</td>
+      <td>0.280</td>
+      <td>0.560</td>
+      <td>0.440</td>
+      <td>0.640</td>
     </tr>
     <tr>
       <td>medical_genetics</td>
-      <td>0.090909091</td>
-      <td>0.636363636</td>
-      <td>0.181818182</td>
-      <td>0.454545455</td>
+      <td>0.091</td>
+      <td>0.636</td>
+      <td>0.182</td>
+      <td>0.455</td>
     </tr>
     <tr>
       <td>miscellaneous</td>
-      <td>0.430232558</td>
-      <td>0.627906977</td>
-      <td>0.593023256</td>
-      <td>0.5</td>
+      <td>0.430</td>
+      <td>0.628</td>
+      <td>0.593</td>
+      <td>0.500</td>
     </tr>
     <tr>
       <td>moral_disputes</td>
-      <td>0.157894737</td>
-      <td>0.368421053</td>
-      <td>0.131578947</td>
-      <td>0.236842105</td>
+      <td>0.158</td>
+      <td>0.368</td>
+      <td>0.132</td>
+      <td>0.237</td>
     </tr>
     <tr>
       <td>moral_scenarios</td>
-      <td>0.13</td>
-      <td>0.38</td>
-      <td>0.09</td>
-      <td>0.36</td>
+      <td>0.130</td>
+      <td>0.380</td>
+      <td>0.090</td>
+      <td>0.360</td>
     </tr>
     <tr>
       <td>nutrition</td>
-      <td>0.151515152</td>
-      <td>0.272727273</td>
-      <td>0.242424242</td>
-      <td>0.393939394</td>
+      <td>0.152</td>
+      <td>0.273</td>
+      <td>0.242</td>
+      <td>0.394</td>
     </tr>
     <tr>
       <td>philosophy</td>
-      <td>0.088235294</td>
-      <td>0.382352941</td>
-      <td>0.205882353</td>
-      <td>0.470588235</td>
+      <td>0.088</td>
+      <td>0.382</td>
+      <td>0.206</td>
+      <td>0.471</td>
     </tr>
     <tr>
       <td>prehistory</td>
-      <td>0.028571429</td>
-      <td>0.342857143</td>
-      <td>0.114285714</td>
-      <td>0.342857143</td>
+      <td>0.029</td>
+      <td>0.343</td>
+      <td>0.114</td>
+      <td>0.343</td>
     </tr>
     <tr>
       <td>professional_accounting</td>
-      <td>0.064516129</td>
-      <td>0.258064516</td>
-      <td>0.064516129</td>
-      <td>0.193548387</td>
+      <td>0.065</td>
+      <td>0.258</td>
+      <td>0.065</td>
+      <td>0.194</td>
     </tr>
     <tr>
       <td>professional_law</td>
-      <td>0.011764706</td>
-      <td>0.164705882</td>
-      <td>0.076470588</td>
-      <td>0.270588235</td>
+      <td>0.012</td>
+      <td>0.165</td>
+      <td>0.076</td>
+      <td>0.271</td>
     </tr>
     <tr>
       <td>professional_medicine</td>
-      <td>0.064516129</td>
-      <td>0.419354839</td>
-      <td>0.161290323</td>
-      <td>0.290322581</td>
+      <td>0.065</td>
+      <td>0.419</td>
+      <td>0.161</td>
+      <td>0.290</td>
     </tr>
     <tr>
       <td>professional_psychology</td>
-      <td>0.086956522</td>
-      <td>0.492753623</td>
-      <td>0.115942029</td>
-      <td>0.333333333</td>
+      <td>0.087</td>
+      <td>0.493</td>
+      <td>0.116</td>
+      <td>0.333</td>
     </tr>
     <tr>
       <td>public_relations</td>
-      <td>0.083333333</td>
-      <td>0.5</td>
-      <td>0.166666667</td>
-      <td>0.25</td>
+      <td>0.083</td>
+      <td>0.500</td>
+      <td>0.167</td>
+      <td>0.250</td>
     </tr>
     <tr>
       <td>security_studies</td>
-      <td>0.037037037</td>
-      <td>0.222222222</td>
-      <td>0.037037037</td>
-      <td>0.296296296</td>
+      <td>0.037</td>
+      <td>0.222</td>
+      <td>0.037</td>
+      <td>0.296</td>
     </tr>
     <tr>
       <td>sociology</td>
-      <td>0.045454545</td>
-      <td>0.409090909</td>
-      <td>0.045454545</td>
-      <td>0.409090909</td>
+      <td>0.045</td>
+      <td>0.409</td>
+      <td>0.045</td>
+      <td>0.409</td>
     </tr>
     <tr>
       <td>us_foreign_policy</td>
-      <td>0.090909091</td>
-      <td>0.454545455</td>
-      <td>0</td>
-      <td>0.636363636</td>
+      <td>0.091</td>
+      <td>0.455</td>
+      <td>0.000</td>
+      <td>0.636</td>
     </tr>
     <tr>
       <td>virology</td>
-      <td>0.222222222</td>
-      <td>0.388888889</td>
-      <td>0.277777778</td>
-      <td>0.166666667</td>
+      <td>0.222</td>
+      <td>0.389</td>
+      <td>0.278</td>
+      <td>0.167</td>
     </tr>
     <tr>
       <td>world_religions</td>
-      <td>0.315789474</td>
-      <td>0.631578947</td>
-      <td>0.578947368</td>
-      <td>0.578947368</td>
+      <td>0.316</td>
+      <td>0.632</td>
+      <td>0.579</td>
+      <td>0.579</td>
     </tr>
     <tr>
       <td><strong>Moyenne</strong></td>
-      <td><strong>12.55783582</strong></td>
-      <td><strong>41.60394524</strong></td>
-      <td><strong>23.2582844</strong></td>
-      <td><strong>35.48442498</strong></td>
+      <td><strong>12.558</strong></td>
+      <td><strong>41.604</strong></td>
+      <td><strong>23.258</strong></td>
+      <td><strong>35.484</strong></td>
     </tr>
   </tbody>
 </table>
