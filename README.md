@@ -21,6 +21,14 @@
 
 <h3>Accuracy Comparison Table</h3>
 
+<p>I conducted an experiment where I performed inference on the MMLU (Massive Multitask Language Understanding) dataset using various models. The goal was to evaluate the accuracy of each model across a wide range of subjects. After obtaining the inference results, I applied a natural language processing (NLP) algorithm to compare the AI-generated answers with the expected correct answers from the dataset.</p>
+
+<p>The comparison was done using a fuzzy string matching algorithm, which assesses the similarity between the AI's answer and the correct answer.</p>
+
+<p>This function works by first preprocessing the answers to ensure consistency in comparison. It then calculates a similarity ratio using the fuzzy string matching technique. The function checks whether the AI's answer contains the correct answer, or vice versa, and whether the similarity ratio exceeds a threshold of 80%. Additionally, it verifies if the correct answer index is present in the AI's response.</p>
+
+<p>By applying this algorithm, I was able to accurately determine the correctness of the AI-generated answers, allowing for a more nuanced evaluation of the model's performance on the MMLU dataset.</p>
+
 <table>
   <thead>
     <tr>
